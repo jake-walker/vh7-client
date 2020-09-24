@@ -1,24 +1,13 @@
-# vh7-app
+# VH7 Client
 
-## Project setup
-```
-yarn install
-```
+This is a work-in-progress future front-end for [VH7](https://vh7.uk/).
 
-### Compiles and hot-reloads for development
-```
-yarn serve
-```
+This is just in development phase at the moment and shouldn't be used for real. It's just here so people can see what is going on.
 
-### Compiles and minifies for production
-```
-yarn build
-```
+## The Plan
 
-### Lints and fixes files
-```
-yarn lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+- It will be fully PWA compatible so that it works offline on mobile devices.
+- It will eventually phase out the existing VH7 front-end. _<https://vh7.uk/> will redirect to <https://app.vh7.uk> where the app will be hosted. <https://vh7.uk/??> (short links) will redirect as normal unless pastes or uploads in which case they will redirect to <https://app.vh7.uk/view/??>._
+- Dark theme!
+- Better user experience than the existing janky front-end.
+- Maybe official apps on Android and iOS???
