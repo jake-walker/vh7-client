@@ -1,6 +1,9 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
+import Shorten from "../views/Shorten.vue"
+import Paste from "../views/Paste.vue"
+import Upload from "../views/Upload.vue"
 
 Vue.use(VueRouter)
 
@@ -11,12 +14,34 @@ Vue.use(VueRouter)
     component: Home
   },
   {
+    path: '/shorten',
+    name: "Shorten",
+    component: Shorten
+  },
+  {
+    path: "/paste",
+    name: "Paste",
+    component: Paste
+  },
+  {
+    path: "/upload",
+    name: "Upload",
+    component: Upload
+  },
+  {
+    path: '/links',
+    name: 'My Links',
+    component: () => import('../views/Links.vue')
+  },
+  {
+    path: '/settings',
+    name: 'Settings',
+    component: () => import('../views/Settings.vue')
+  },
+  {
     path: '/about',
     name: 'About',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
+    component: () => import('../views/About.vue')
   }
 ]
 

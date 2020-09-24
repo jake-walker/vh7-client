@@ -1,32 +1,84 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
-  </div>
+  <v-app>
+    <v-navigation-drawer v-model="drawer" app>
+      <v-list dense :value="true">
+        <v-list-item-group color="primary">
+          <v-list-item to="/">
+            <v-list-item-action>
+              <v-icon>mdi-home</v-icon>
+            </v-list-item-action>
+            <v-list-item-content>
+              <v-list-item-title>Home</v-list-item-title>
+            </v-list-item-content>
+          </v-list-item>
+          <v-list-item to="/links">
+            <v-list-item-action>
+              <v-icon>mdi-link-variant</v-icon>
+            </v-list-item-action>
+            <v-list-item-content>
+              <v-list-item-title>My Links</v-list-item-title>
+            </v-list-item-content>
+          </v-list-item>
+          <v-divider/>
+          <v-list-item to="/shorten">
+            <v-list-item-action>
+            </v-list-item-action>
+            <v-list-item-content>
+              <v-list-item-title>Shorten</v-list-item-title>
+            </v-list-item-content>
+          </v-list-item>
+          <v-list-item to="/paste">
+            <v-list-item-action>
+            </v-list-item-action>
+            <v-list-item-content>
+              <v-list-item-title>Paste</v-list-item-title>
+            </v-list-item-content>
+          </v-list-item>
+          <v-list-item to="/upload">
+            <v-list-item-action>
+            </v-list-item-action>
+            <v-list-item-content>
+              <v-list-item-title>Upload</v-list-item-title>
+            </v-list-item-content>
+          </v-list-item>
+          <v-divider/>
+          <v-list-item to="/settings">
+            <v-list-item-action>
+              <v-icon>mdi-cog</v-icon>
+            </v-list-item-action>
+            <v-list-item-content>
+              <v-list-item-title>Settings</v-list-item-title>
+            </v-list-item-content>
+          </v-list-item>
+          <v-list-item to="/about">
+            <v-list-item-action>
+              <v-icon>mdi-information</v-icon>
+            </v-list-item-action>
+            <v-list-item-content>
+              <v-list-item-title>About</v-list-item-title>
+            </v-list-item-content>
+          </v-list-item>
+        </v-list-item-group>
+      </v-list>
+    </v-navigation-drawer>
+
+    <v-app-bar app color="primary" dark>
+      <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
+      <v-toolbar-title>{{ $route.name || "VH7" }}</v-toolbar-title>
+    </v-app-bar>
+
+
+    <v-main>
+      <router-view></router-view>
+    </v-main>
+  </v-app>
 </template>
 
-<style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-
-#nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
-}
-</style>
+<script>
+export default {
+  name: 'App',
+  data: () => ({
+    drawer: null,
+  })
+};
+</script>
